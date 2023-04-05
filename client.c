@@ -47,8 +47,7 @@ int main()
     getsockname(server_sd, (struct sockaddr *) &my_addr, &len);
     inet_ntop(AF_INET, &my_addr.sin_addr, myIP, sizeof(myIP));
     myPort = ntohs(my_addr.sin_port);
-	printf("%d\n", myPort);
-	
+	//printf("%d\n", myPort);
 	//accept
 	char buffer[256];
 
