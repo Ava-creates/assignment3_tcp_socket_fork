@@ -53,11 +53,13 @@ int main()
 		//accept
 		int client_sd = accept(server_sd,&client_addr, &addr_size);
 		
-		printf("[%s:%d] Connected\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
+		
 		int pid = fork(); //fork a child process
 		if(pid == 0)   //if it is the child process
 		 {
 		 	close(server_sd); //close the copy of server/master socket in child process
+			getpeername(client_sd, &client_addr, &addr_size);
+			printf("[%s:%d] Connected\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
 		 	char buffer[256];
 			while(1)
 			{
