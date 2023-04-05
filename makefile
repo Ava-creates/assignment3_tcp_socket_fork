@@ -7,5 +7,7 @@ client: client.c
 server: server.c
 	gcc $(CFLAGS) server.c -o server
 
+clean:
+	rm client server
 
 #reference to the article i used - https://stackoverflow.com/questions/48261680/how-can-i-create-makefile-for-gcc-on-a-server-client-program
